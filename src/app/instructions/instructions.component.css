@@ -1,0 +1,58 @@
+.container {
+  background-color: var(--orange);
+  padding: 40px 0;
+}
+
+ul {
+  list-style: disc;
+}
+
+.instructions {
+  width: 80%;
+  background-color: var(--white);
+  margin: auto;
+  padding: var(--lg);
+  color: var(--text-color);
+  border-radius: 10px;
+  line-height: 2;
+}
+
+h1 {
+  text-align: center;
+  font-size: var(--md);
+}
+
+p {
+  font-size: var(--sm);
+  font-weight: 500;
+}
+
+.browser-default {
+  padding-left: 30px;
+  margin-top: 10px;
+}
+
+.lifeline-icon {
+  color: var(--green);
+}
+
+.link-section {
+  margin-top: var(--md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+a {
+  color: var(--blue);
+}
+
+.play-btn {
+  color: var(--white);
+  background-color: var(--orange);
+}
+
+img {
+  width: 90%;
+}

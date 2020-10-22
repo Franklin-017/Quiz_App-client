@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--text-color);
+}
+
+:root {
+  /* colors */
+  --blue: #1da1f2;
+  --red: #ea4355;
+  --green: #57b846;
+  --orange: #ffa500;
+  --white: #fefefe;
+  --text-color: #4b4b4b;
+
+  /* text size */
+  --xs: 0.5rem;
+  --normal: 1rem;
+  --sm: 1.5rem;
+  --md: 2rem;
+  --lg: 3rem;
+  --xlg: 5rem;
+  --xxlg: 7rem;
+
+  /* breakpoints */
+  --lg-breakpoint: 1024px;
+  --md-breakpoint: 768px;
+  --sm-breakpoint: 641px;
+  --xsm-breakpoint: 480px;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.btn {
+  padding: 10px 25px;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  filter: brightness(80%);
+}

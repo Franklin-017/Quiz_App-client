@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="questions">
+    <h2>Quiz Mode</h2>
+    <div class="timer-container">
+      <p>
+        <span>{{ currentQuestionIndex + 1 }} of {{ numberOfQuestions }}</span>
+        <span>
+          {{ displayTimeElapsed() }}
+          <span class="mdi mdi-clock-outline mdi-24px"></span
+        ></span>
+      </p>
+    </div>
+    <h5>{{ currentQuestion["question"] }}</h5>
+    <div class="option-grid">
+      <p class="option" (click)="handleClick($event)">
+        {{ currentQuestion["optionA"] }}
+      </p>
+      <p class="option" (click)="handleClick($event)">
+        {{ currentQuestion["optionB"] }}
+      </p>
+      <p class="option" (click)="handleClick($event)">
+        {{ currentQuestion["optionC"] }}
+      </p>
+      <p class="option" (click)="handleClick($event)">
+        {{ currentQuestion["optionD"] }}
+      </p>
+    </div>
+    <div class="button-container">
+      <button class="btn prev-btn" (click)="displayPreviousQuestion()">
+        Previous
+      </button>
+      <button class="btn next-btn" (click)="displayNextQuestion()">
+        {{
+          numberOfAnsweredQuestions < numberOfQuestions - 1 ? "Next" : "Submit"
+        }}
+      </button>
+      <button class="btn quit-btn" (click)="endTest()">Quit</button>
+    </div>
+  </div>
+</div>

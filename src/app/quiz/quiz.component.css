@@ -1,0 +1,99 @@
+.container {
+  background-color: var(--orange);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.questions {
+  width: 80%;
+  height: 450px;
+  border-left: 5px solid var(--blue);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: var(--sm) var(--md);
+  margin: var(--lg) auto 0 auto;
+  border-radius: 10px;
+  box-shadow: 3px 7px 10px #555555;
+  position: relative;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: var(--sm);
+  font-weight: lighter;
+  text-align: center;
+  margin: 20px;
+}
+
+.timer-container p {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 20px;
+  padding: 20px;
+}
+
+.option {
+  background-color: var(--blue);
+  padding: var(--sm);
+  text-align: center;
+  border-radius: 30px;
+  cursor: pointer;
+  color: var(--white);
+  outline: none;
+  transition: all 0.5s linear;
+}
+
+.option:hover {
+  filter: brightness(85%);
+}
+
+.button-container {
+  position: absolute;
+  bottom: 20px;
+  right: 70px;
+}
+
+.btn {
+  color: var(--white);
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: var(--xs) var(--sm);
+  margin-left: 10px;
+}
+
+.quit-btn {
+  background-color: var(--red);
+}
+
+.next-btn {
+  background-color: var(--green);
+}
+
+.prev-btn {
+  background-color: var(--blue);
+}
+
+.option.correct {
+  background-color: var(--green);
+}
+
+.option.wrong {
+  background-color: var(--red);
+}
+
+.option.disable-btn {
+  background-color: var(--text-color);
+}

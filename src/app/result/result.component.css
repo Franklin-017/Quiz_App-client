@@ -1,0 +1,31 @@
+.result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.success-icon {
+  color: var(--green);
+  font-size: var(--lg);
+}
+.container {
+  color: var(--text-color);
+  line-height: 2;
+}
+
+h4 {
+  font-size: var(--sm);
+  text-align: center;
+}
+
+h2 {
+  color: var(--green);
+  font-size: var(--md);
+  text-align: center;
+}
+
+.left {
+  margin-right: 30px;
+}
