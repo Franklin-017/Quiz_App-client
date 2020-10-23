@@ -13,16 +13,24 @@
 }
 
 section {
-  width: 50%;
+  width: 30%;
   text-align: center;
   margin: 0 auto;
   padding: var(--normal) var(--md);
   background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
 }
 
 h1 {
   font-size: var(--lg);
-  font-weight: 700;
+  font-weight: 500;
+  color: var(--orange);
+}
+
+p {
+  margin-top: 5px;
+  text-align: center;
+  font-size: var(--sm);
 }
 
 .cube {

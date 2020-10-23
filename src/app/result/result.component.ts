@@ -9,13 +9,27 @@ import { Component, OnInit } from '@angular/core';
 export class ResultComponent implements OnInit {
 
   timer = this.quizService.seconds;
-  score = this.quizService.score
+  score = Math.round((this.quizService.score / 15) * 100)
   numberOfAnsweredQuestions = this.quizService.numberOfAnsweredQuestions
   correctAnswers = this.quizService.correctAnswers
   wrongAnswers = this.quizService.wrongAnswers
+  remark:string = ""
 
 
-  constructor(private quizService: QuizService) { }
+  constructor(private quizService: QuizService) {
+    if(this.score < 30){
+      this.remark = "Try again!"
+    }
+    else if(this.score > 30 && this.score < 50){
+      this.remark = "Better luck next time!"
+    }
+    else if(this.score > 50 && this.score < 80){
+      this.remark = "You can do better!"
+    }
+    else {
+      this.remark = "You are a genious!"
+    }
+  }
 
   ngOnInit(): void {
   }

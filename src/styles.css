@@ -1,14 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
-  color: var(--text-color);
 }
 
 :root {
@@ -19,6 +18,10 @@ body {
   --orange: #ffa500;
   --white: #fefefe;
   --text-color: #4b4b4b;
+
+  /* Font Family */
+  --lobster: "Lobster";
+  --montserrat: "Montserrat";
 
   /* text size */
   --xs: 0.5rem;
@@ -35,6 +38,16 @@ body {
   --sm-breakpoint: 641px;
   --xsm-breakpoint: 480px;
 }
+
+body {
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: var(--lobster);
+}
+
 ul {
   list-style: none;
 }

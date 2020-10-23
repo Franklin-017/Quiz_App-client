@@ -1,4 +1,3 @@
-import { Question } from './../models/question.model';
 import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { QuizService } from '../quiz.service';
@@ -10,7 +9,13 @@ import { QuizService } from '../quiz.service';
 })
 export class QuizComponent implements OnInit {
 
+  start: boolean= false
+
+  indication: string = "neutral"
+
   currentQuestion: object = {}
+
+  disableOptions: boolean = false
 
   nextQuestion: object = {}
 
@@ -36,17 +41,23 @@ export class QuizComponent implements OnInit {
 
   constructor(private router: Router, private quizService: QuizService) {  }
 
-  
-
   ngOnInit() {
-    this.startTimer()
   }
 
+  // Starting Quiz
+  startQuiz() {
+    this.start = true
+    this.seconds = 0
+    this.startTimer()
+    this.displayQuestions()
+  }
 
+  // For time display
   displayTimeElapsed() {
     return  Math.floor(this.seconds / 60) + ':' + Math.floor(this.seconds % 60)
   }
 
+  // To display the question
   displayQuestions = ( ) => {
     if(this.quizService.questions.length !== 0){
       this.currentQuestion = this.quizService.questions[this.currentQuestionIndex]
@@ -56,8 +67,11 @@ export class QuizComponent implements OnInit {
     }
   }
 
+  // To display next  question
   displayNextQuestion() {
     this.numberOfAnsweredQuestions++;
+    this.indication = "neutral"
+    this.disableOptions = false
     if(this.currentQuestionIndex < this.numberOfQuestions - 1){
       this.currentQuestionIndex = this.currentQuestionIndex + 1
       this.displayQuestions()
@@ -67,14 +81,7 @@ export class QuizComponent implements OnInit {
     }
   }
 
-  displayPreviousQuestion() {
-    this.numberOfAnsweredQuestions--;
-    if(this.currentQuestionIndex > 0){
-      this.currentQuestionIndex = this.currentQuestionIndex - 1
-      this.displayQuestions()
-    }
-  }
-
+  // To end the test
   endTest() {
     clearInterval(this.timer)
     window.alert("Your answers are submitted!")
@@ -86,27 +93,29 @@ export class QuizComponent implements OnInit {
     this.router.navigate(['/result'])
   }
 
+  // To check answer is correct or wrong
   handleClick(e){
     e.preventDefault()
+    this.disableOptions = true
     let choice = e.explicitOriginalTarget.innerText
     if(choice == this.answer){
       this.correctAnswers++
       this.score++
+      this.indication = "correct"
     }
     else{
       this.wrongAnswers++
+      this.indication = "wrong"
+      console.log(choice, this.answer)
     }
-    console.log(choice, this.answer)
   }
 
+  // Timer
   startTimer() {
     this.timer = setInterval(() => {
       this.seconds++;
-      if(Math.floor(this.seconds / 60) > 15){
+      if(Math.floor(this.seconds / 60) >= 15 && Math.floor(this.seconds % 60) >= 0){
         this.endTest()
-      }
-      if(Math.floor(this.seconds % 60) > 0 ){
-        this.displayQuestions()
       }
     }, 1000)
   }

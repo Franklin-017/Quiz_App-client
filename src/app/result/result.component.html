@@ -1,34 +1,62 @@
-<div class="result-container">
+<div *ngIf="numberOfAnsweredQuestions == 0" class="result-container">
+  <div class="container">
+    <h1>No stats available, take quiz.</h1>
+    <div>
+      <ul class="link-section">
+        <li>
+          <a routerLink="/home" routerLinkActive="active">Go back to home!</a>
+        </li>
+        <li>
+          <a class="btn play-btn" routerLink="/quiz" routerLinkActive="active"
+            >Start Quiz!</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div *ngIf="numberOfAnsweredQuestions != 0" class="result-container">
   <div>
     <span class="mdi mdi-check-circle-outline success-icon"></span>
   </div>
   <h1>Quiz has ended</h1>
   <div class="container">
-    <h4>Remark</h4>
+    <h4>{{ remark }}</h4>
     <h2>Your Score: {{ score }}%</h2>
-    <hr />
-    <span class="left stat">Total number of questions: </span>
-    <span class="right">15</span><br />
-    <hr />
 
-    <span class="left stat">Answered Questions: </span>
-    <span class="right">{{ numberOfAnsweredQuestions }}</span
-    ><br />
-    <hr />
-
-    <span class="left stat">Correct Answers: </span>
-    <span class="right">{{ correctAnswers }}</span
-    ><br />
-    <hr />
-
-    <span class="left stat">Wrong Answers: </span>
-    <span class="right">{{ wrongAnswers }}</span
-    ><br />
-    <hr />
-
-    <span class="left stat">Total time taken: </span>
-    <span class="right">{{ displayTimeElapsed() }}</span
-    ><br />
-    <hr />
+    <table style="width: 350px">
+      <tr>
+        <td class="stat">Total number of questions:</td>
+        <td>15</td>
+      </tr>
+      <tr>
+        <td class="stat">Answered Questions:</td>
+        <td>{{ numberOfAnsweredQuestions }}</td>
+      </tr>
+      <tr>
+        <td class="stat">Correct Answers:</td>
+        <td>{{ correctAnswers }}</td>
+      </tr>
+      <tr>
+        <td class="stat">Wrong Answers:</td>
+        <td>{{ wrongAnswers }}</td>
+      </tr>
+      <tr>
+        <td class="stat">Total time taken:</td>
+        <td>{{ displayTimeElapsed() }}</td>
+      </tr>
+    </table>
+    <div>
+      <ul class="link-section">
+        <li>
+          <a routerLink="/home" routerLinkActive="active">Go back to home!</a>
+        </li>
+        <li>
+          <a class="btn play-btn" routerLink="/quiz" routerLinkActive="active"
+            >Start Quiz!</a
+          >
+        </li>
+      </ul>
+    </div>
   </div>
 </div>

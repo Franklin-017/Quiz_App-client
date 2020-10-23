@@ -1,40 +1,71 @@
-<div class="container">
-  <div class="questions">
-    <h2>Quiz Mode</h2>
-    <div class="timer-container">
-      <p>
-        <span>{{ currentQuestionIndex + 1 }} of {{ numberOfQuestions }}</span>
-        <span>
-          {{ displayTimeElapsed() }}
-          <span class="mdi mdi-clock-outline mdi-24px"></span
-        ></span>
-      </p>
+<ng-container>
+  <div class="container" [class]="indication">
+    <div *ngIf="start === true" class="questions">
+      <h2>Quiz Mode</h2>
+      <div class="timer-container">
+        <p>
+          <span>{{ currentQuestionIndex + 1 }} of {{ numberOfQuestions }}</span>
+          <span>
+            {{ displayTimeElapsed() }}
+            <span class="mdi mdi-clock-outline mdi-24px"></span
+          ></span>
+        </p>
+      </div>
+      <h5>{{ currentQuestion["question"] }}</h5>
+      <div class="option-grid">
+        <button
+          class="option"
+          (click)="handleClick($event)"
+          [disabled]="disableOptions"
+        >
+          {{ currentQuestion["optionA"] }}
+        </button>
+        <button
+          class="option"
+          (click)="handleClick($event)"
+          [disabled]="disableOptions"
+        >
+          {{ currentQuestion["optionB"] }}
+        </button>
+        <button
+          class="option"
+          (click)="handleClick($event)"
+          [disabled]="disableOptions"
+        >
+          {{ currentQuestion["optionC"] }}
+        </button>
+        <button
+          class="option"
+          (click)="handleClick($event)"
+          [disabled]="disableOptions"
+        >
+          {{ currentQuestion["optionD"] }}
+        </button>
+      </div>
     </div>
-    <h5>{{ currentQuestion["question"] }}</h5>
-    <div class="option-grid">
-      <p class="option" (click)="handleClick($event)">
-        {{ currentQuestion["optionA"] }}
-      </p>
-      <p class="option" (click)="handleClick($event)">
-        {{ currentQuestion["optionB"] }}
-      </p>
-      <p class="option" (click)="handleClick($event)">
-        {{ currentQuestion["optionC"] }}
-      </p>
-      <p class="option" (click)="handleClick($event)">
-        {{ currentQuestion["optionD"] }}
-      </p>
-    </div>
-    <div class="button-container">
-      <button class="btn prev-btn" (click)="displayPreviousQuestion()">
-        Previous
+    <div class="start-container" *ngIf="start === false">
+      <img
+        src="../../assets/img/book-owl.png"
+        alt="book-owl"
+        class="book-owl"
+      />
+      <button class="btn start-btn" (click)="startQuiz()">
+        Are you ready!
       </button>
+    </div>
+    <div class="button-container" *ngIf="disableOptions">
+      <h4
+        [class.text-success]="indication == 'correct'"
+        [class.text-danger]="indication == 'wrong'"
+      >
+        {{ indication }}!
+      </h4>
+      <p class="displayAns">The answer is: {{ answer }}</p>
       <button class="btn next-btn" (click)="displayNextQuestion()">
         {{
           numberOfAnsweredQuestions < numberOfQuestions - 1 ? "Next" : "Submit"
         }}
       </button>
-      <button class="btn quit-btn" (click)="endTest()">Quit</button>
     </div>
   </div>
-</div>
+</ng-container>
