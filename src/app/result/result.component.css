@@ -23,6 +23,7 @@
 .success-icon {
   color: var(--green);
   font-size: var(--lg);
+  z-index: 1;
 }
 .container {
   color: var(--white);
