@@ -96,7 +96,8 @@ export class QuizComponent implements OnInit {
   // To check answer is correct or wrong
   handleClick(e){
     this.disableOptions = true
-    let choice = e.explicitOriginalTarget.innerText
+    let choice: string = e.srcElement.innerText
+
     if(choice === this.answer){
       this.correctAnswers++
       this.score++
@@ -106,7 +107,6 @@ export class QuizComponent implements OnInit {
       this.wrongAnswers++
       this.indication = "wrong"
     }
-    console.log(choice)
   }
 
   // Timer
