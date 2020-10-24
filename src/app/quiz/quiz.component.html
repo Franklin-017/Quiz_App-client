@@ -55,8 +55,8 @@
     </div>
     <div class="button-container" *ngIf="disableOptions">
       <h4
-        [class.text-success]="indication == 'correct'"
-        [class.text-danger]="indication == 'wrong'"
+        [class.text-success]="indication === 'correct'"
+        [class.text-danger]="indication === 'wrong'"
       >
         {{ indication }}!
       </h4>

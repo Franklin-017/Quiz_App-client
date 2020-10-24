@@ -64,3 +64,32 @@ a {
 img {
   width: 90%;
 }
+
+@media (max-width: 768px) {
+  .instructions {
+    width: 80%;
+    font-size: var(--xs);
+  }
+}
+@media (max-width: 585px) {
+  .instructions {
+    width: 90%;
+  }
+  h1 {
+    font-size: var(--sm);
+  }
+
+  p {
+    font-size: var(--normal);
+  }
+}
+
+@media (max-width: 400px) {
+  .browser-default {
+    padding-left: 10px;
+  }
+
+  .btn {
+    padding: 10px;
+  }
+}

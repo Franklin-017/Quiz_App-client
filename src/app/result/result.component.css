@@ -20,7 +20,7 @@
   height: 100%;
 }
 
-.success-icon {
+span.success-icon {
   color: var(--green);
   font-size: var(--lg);
   z-index: 1;
@@ -40,6 +40,10 @@ h4 {
   font-size: var(--sm);
   text-align: center;
   color: var(--orange);
+}
+
+table {
+  width: 350px;
 }
 
 .stat {
@@ -62,4 +66,25 @@ h2 {
 
 li a {
   z-index: 100;
+}
+
+@media (max-width: 400px) {
+  table {
+    width: 80%;
+  }
+  h1,
+  h2 {
+    font-size: var(--sm);
+  }
+
+  h4 {
+    font-size: var(--normal);
+  }
+  .stat {
+    font-size: var(--normal);
+  }
+
+  .link-section {
+    margin-top: var(--sm);
+  }
 }

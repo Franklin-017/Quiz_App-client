@@ -98,7 +98,7 @@ export class QuizComponent implements OnInit {
     e.preventDefault()
     this.disableOptions = true
     let choice = e.explicitOriginalTarget.innerText
-    if(choice == this.answer){
+    if(choice === this.answer){
       this.correctAnswers++
       this.score++
       this.indication = "correct"

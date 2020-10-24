@@ -1,6 +1,7 @@
 .container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
 }
 .questions {
   width: 80%;
@@ -80,12 +81,12 @@ h4 {
 }
 
 .start-container {
-  position: relative;
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background: linear-gradient(
     90deg,
     rgba(247, 138, 3, 1) 0%,
@@ -94,9 +95,8 @@ h4 {
 }
 
 .book-owl {
-  position: absolute;
   width: 250px;
-  left: 300px;
+  margin-bottom: 20px;
 }
 
 .btn {
@@ -142,6 +142,54 @@ h4 {
   background-color: var(--red);
 }
 
-.disable {
-  background-color: rgb(168, 168, 168);
+@media (max-width: 480px) {
+  .book-owl {
+    width: 150px;
+  }
+  .btn {
+    font-size: var(--normal);
+  }
+  .start-btn {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 880px) {
+  .option-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 440px) {
+  .option-grid {
+    padding: 10px;
+  }
+
+  h2 {
+    font-weight: 300;
+  }
+
+  h5 {
+    font-size: var(--normal);
+    margin: 10px;
+  }
+
+  h4 {
+    font-size: var(--normal);
+    font-weight: 400;
+  }
+  .displayAns {
+    font-size: var(--normal);
+    margin-bottom: 5px;
+    width: 100%;
+  }
+  .start-btn {
+    font-size: var(--normal);
+  }
+  .button-container {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
 }
